@@ -2,6 +2,7 @@ package qa.com.TestBase;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -10,12 +11,15 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import qa.com.PageLayer.DashboardPage;
 import qa.com.PageLayer.LoginPage;
 
 public class TestBaseClass {
 	
 public static WebDriver driver;
 public LoginPage login;
+public DashboardPage dash;
+public JavascriptExecutor js;
 	
 	
 	@BeforeMethod
@@ -58,6 +62,11 @@ public LoginPage login;
 		
 		
 		login=new LoginPage();
+		login.clickOnLognbt();
+		login.enterEmail("amarwaghmare573@gmail.com");
+		login.enterPassword("Test@1234");
+		login.ClickSubmitbtn();
+		dash=new DashboardPage();
 	
 		
 		
